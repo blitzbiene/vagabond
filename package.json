@@ -1,0 +1,14 @@
+{
+  "name": "vagabond",
+  "version": "1.0.1",
+  "description": "A social site for sharing places.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "muzammil_nawaz",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.17.1"
+  }
+}
