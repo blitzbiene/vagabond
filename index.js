@@ -4,9 +4,11 @@ const app = express();
 
 const bodyParser = require("body-parser");
 const userRouter = require("./routes/users-route");
+const placeRouter = require("./routes/places-route");
 
-
+app.use(bodyParser.json());
 app.use('/api/users',userRouter);
+app.use('/api/places',placeRouter);
 
 
 
