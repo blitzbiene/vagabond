@@ -1,14 +1,19 @@
 const jwt = require("jsonwebtoken");
+const SECRET_KEY =  "lvnsjfnvkjdsnfivdf";
 
 const generateToken = (userData)=>{
       if(userData._id && userData.email)
       {
           return jwt.sign({userId:userData._id,email:userData.email},
-                            "lvnsjfnvkjdsnfivdf",
-                            {expiresIn:'60'});
+                           SECRET_KEY,
+                            {expiresIn:'1h'});
 
       }
       else throw new Error("Error in tokenization");
+}
+
+const checkToken = (token)=>{
+      return jwt.verify(token,SECRET_KEY);
 }
 
 
@@ -16,5 +21,6 @@ const generateToken = (userData)=>{
 
 
 module.exports = {
-       generateToken
+       generateToken,
+       checkToken
 }
