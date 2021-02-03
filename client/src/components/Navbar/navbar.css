@@ -1,0 +1,14 @@
+.left--margin--auto{
+    margin-left: auto !important;
+}
+.navbar--nav--bgcolor{
+    background-color: #563d73;
+}
+.brand--logo{
+    height:40px;
+    width:40px;
+    border-radius: 50%;
+}
+.navbar--nav--button{
+    margin:10px;
+}

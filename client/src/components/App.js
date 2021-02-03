@@ -1,5 +1,8 @@
 import React from 'react';
 
+import Navbar from './Navbar';
+import LoginSignup from './LoginSignup';
+
 class App extends React.Component{
 
 
@@ -7,8 +10,9 @@ class App extends React.Component{
 
 
     render(){
-        return(<div>
-            App
+        return(<div class="container-lg">
+            <Navbar/>
+            <LoginSignup/>
         </div>);
     }
 }
