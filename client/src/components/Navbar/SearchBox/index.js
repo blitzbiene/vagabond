@@ -7,10 +7,10 @@ export class SearchBar extends Component {
     render() {
         return (
             <form className="d-flex">
-                <div class="searchBox">
+                <div className="searchBox">
 
-                    <input class="searchInput" type="text" name="" placeholder="Search"/>
-                        <button class="searchButton">
+                    <input className="searchInput" type="text" name="" placeholder="Search"/>
+                        <button className="searchButton">
                             <Search/>
                         </button>
                 </div>

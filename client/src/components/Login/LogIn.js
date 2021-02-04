@@ -10,9 +10,13 @@ export class LogIn extends Component {
                    
                         <h2 className="active"> Sign In </h2>
                         
-                        <form>
-                        <input type="text" id="login" className="fadeIn second login-input-text" name="login" placeholder="email"/>
-                        <input type="text" id="password" className="fadeIn third login-input-text" name="login" placeholder="password"/>
+                        <form onSubmit={this.props.handleSubmit}>
+                        <input type="text" value={this.props.email} id="email" 
+                          onChange={this.props.onChange}
+                        className="fadeIn second login-input-text" name="email" placeholder="email"/>
+                        <input type="password" value={this.props.password} id="password"
+                          onChange={this.props.onChange}
+                        className="fadeIn third login-input-text" name="email" placeholder="password"/>
                         <input type="submit" className="fadeIn fourth login-input-submit" value="Log In"/>
                         </form>
 
