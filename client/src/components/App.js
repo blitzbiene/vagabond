@@ -1,10 +1,12 @@
 import React from 'react';
 import {connect} from 'react-redux';
+import {Route,Switch,BrowserRouter,Redirect} from 'react-router-dom';
 
 import Navbar from './Navbar';
 import Login from './Login';
-import {Route,Switch,BrowserRouter} from 'react-router-dom';
-import Signup from './Signup/Signup';
+import Signup from './Signup';
+import DashBoard from './Dashboard';
+import AddPlace from './AddPlace'
 
 import actions from '../actions';
 
@@ -13,11 +15,13 @@ class App extends React.Component{
     constructor(props){
         super(props);
         this.props.checkUser();
-        console.log(this.props.user);
+        
     }
 
     render(){
-        console.log(this.props.user);
+
+       
+        
         return(<div class="container-lg">
             
             <BrowserRouter>
@@ -26,8 +30,10 @@ class App extends React.Component{
              {!(this.props.user)?
             <Route exact path="/signin"><Login/></Route>
             :null}
-            <Route exact path='/register'><Signup/></Route>
-            <Route exact path='/dashboard'></Route>
+            {!(this.props.user)?<Route exact path='/register'><Signup/></Route>:null}
+            {this.props.user?<Route exact path='/dashboard'><DashBoard/></Route>:null}
+            {this.props.user?<Route exact path='/addplace'><AddPlace/></Route>:null}
+            <Redirect to={{path:'/'}}/>
             </Switch>
             </BrowserRouter>
         </div>);
@@ -36,4 +42,4 @@ class App extends React.Component{
 const mapStateToProps = (state,ownProps)=>{
     return {user:state.user};
 }
-export default connect(null,{checkUser:actions.checkUser})(App);
+export default connect(mapStateToProps,{checkUser:actions.checkUser})(App);

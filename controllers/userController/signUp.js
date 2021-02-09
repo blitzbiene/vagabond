@@ -25,6 +25,7 @@ const createUser = async (name,email,password,image)=>{
 const signUp = async (req,res,next)=>{
 
     const {name,email,password,image} = req.body;
+    
     try{
         myValidators.checkName(name);
         myValidators.checkMail(email);
@@ -33,22 +34,15 @@ const signUp = async (req,res,next)=>{
         await createUser(name,email,hashPassword,image);
         const userData = await User.findOne({email},'-password');
         const token = myjwt.generateToken(userData);
-        console.log(token);
-
-        return res.status(201).json({userId:userData._id,email:userData.email,
-        token});
-        
-        
-        
-
-        
+        newUser = {userId:userData._id,email:userData.email,
+            token};
+        return res.status(201).json(newUser);
     }
     catch(e){
         return res.status(404).json({msg:e.message});
     }
      
      
-     res.send("Signup route");
 
 }
 module.exports  = signUp;

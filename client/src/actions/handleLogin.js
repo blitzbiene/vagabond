@@ -9,10 +9,12 @@ const handleLogin = (onSuccessfullLogin, loginFailed, email, password) => {
                 email,
                 password
             });
-            dispatch({ type: "SET_USER", payload: response.data });
-            return onSuccessfullLogin();
+            console.log("handleLogin action",response)
+            onSuccessfullLogin(response);
         }
         catch (error) {
+
+            console.log(error);
            
             loginFailed(error.response);
         }

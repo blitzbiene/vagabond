@@ -26,10 +26,10 @@ export class LoginSignup extends Component {
 
 
     }
-    onSuccessfulLogin = ()=>{
-           if(!this.props.user)
+    onSuccessfulLogin = (response)=>{
+           if(!response)
            return this.loginFailed({msg:"Unknown Error"});
-           this.props.setUserinCookie('user',this.props.user);
+           this.props.setUserinCookie('user',response.data);
            this.props.history.push('/dashboard');
     }
     loginFailed = (response)=>{

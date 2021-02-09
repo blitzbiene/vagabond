@@ -2,12 +2,13 @@ const router = require("express").Router();
 const multer = require("multer");
 const placeController = require("../controllers/placeController");
 const auth = require("../middlewares/auth");
-const upload = multer({dest:"uploads/"});
+const upload = require("../middlewares/uploadPhoto");
 
  router.get('/:pid',placeController.getPlaceById);
  router.get('/user/:uid',placeController.getPlaceByUserId);
  router.use(auth);
- router.post('/',placeController.checkUser,upload.single('image'),placeController.createPlace);
+ router.post('/',upload.single('image'),placeController.checkUser,placeController.createPlace);
+ router.delete('/:pid',placeController.deletePlace);
 
 
 

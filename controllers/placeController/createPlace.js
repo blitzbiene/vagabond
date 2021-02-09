@@ -1,4 +1,5 @@
 const Place = require("../../models/places");
+const User = require("../../models/users");
 const myValidators = require("../../utils/myValidators");
 
 const createPlace = async (req, res, next) => {

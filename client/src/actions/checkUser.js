@@ -7,7 +7,7 @@ export default ()=>{
              
              const user = cookie.get('user');
              
-        // console.log(user);
+             if(!user)throw new Error();
          return {
              type:'SET_USER',
              payload:user
@@ -17,7 +17,7 @@ export default ()=>{
              
             return {
                 type:"CHECK_USER_FAILED",
-                payload:"user_check_failed"
+                payload:null
             }
          }
          

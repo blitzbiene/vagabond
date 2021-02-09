@@ -1,6 +1,7 @@
 const User = require("../../models/users");
 const signUp = require("./signUp");
 const logIn = require('./login');
+const getUserById = require("./getUserById");
 
 
 
@@ -24,5 +25,6 @@ const getUsers = async (req,res,next)=>{
 module.exports= {
     getUsers,
     logIn,
-    signUp
+    signUp,
+    getUserById
 }
